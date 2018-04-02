@@ -9,6 +9,6 @@ locals {
 output "k8s_endpoint_addresses" {
   value = "[${join(", ",
     formatlist(local.k8s_endpoint_address_format,
-    var.etcd_ip_addresses,
-    var.etcd_ip_addresses))}]"
+    module.etcd.ip_addresses,
+    module.etcd.ip_addresses))}]"
 }
